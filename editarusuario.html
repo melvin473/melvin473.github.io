@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pet Resgate - Editar perfil</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="main/assets/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="main/css/styles.css" rel="stylesheet" />
+        <script src="main/js/scripts.js"></script>
+        <script>
+            window.onload = function() {
+                editarUsuario();
+            };
+
+            document.addEventListener('DOMContentLoaded', function() {
+              const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+              if (!loggedInUser) {
+                alert('Você precisa estar logado para acessar esta página.');
+                window.location.href = 'login.html'; // Redireciona para a página de login
+              }
+            });          
+        </script>
+    </head>
+    <body>
+        <!-- Menu de navegação-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand"><img src="main/assets/img/navbar-logo.png" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="home.html">Página inicial</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Formulário de Cadastro-->
+        <div class="container mt-5 mb-5">
+            <div class="text-left">
+                <h2 class="mb-4">Editar perfil</h2>
+                <form class="form-inline" id="cadastro-form">
+                    <div class="form-group row mb-3">
+                        <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome" maxlength="50" required>
+                        </div>
+                    </div>
+                <div class="form-group row mb-3">
+                    <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
+                    <div class="col-sm-5">
+                        <input type="tel" class="form-control" id="telefone" placeholder="Seu telefone ou WhatsApp" maxlength="15" onkeyup="handlePhone(event)">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-5">
+                        <input type="email" class="form-control" id="email" placeholder="Seu email" maxlength="50" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="senha" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" id="senha" placeholder="Use letras, números e símbolos" maxlength="16" oninput="checarForcaSenha()" required>
+                        <div id="forcaIndicador" class="forca mt-2"></div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="confirmacao" class="col-sm-2 col-form-label">Confirme sua senha</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" id="confirmacao" placeholder="Repita a senha" maxlength="16" oninput="checarConfirmacao()" required>
+                        <div id="confirmaIndicador" class="mt-2"></div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="cep" class="col-sm-2 col-form-label">CEP</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="cep" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Apenas números">
+                        <button class="btn btn-primary mt-3" type="button" onclick="consultarCEP()">Consultar CEP</button>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="endereco" class="col-sm-2 col-form-label">Endereço</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="endereco" placeholder="Rua, Avenida, Praça..." maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="numero" class="col-sm-2 col-form-label">Número</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="numero" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="10">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="complemento" class="col-sm-2 col-form-label">Complemento</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, etc..." maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="bairro" class="col-sm-2 col-form-label">Bairro</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="bairro" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="cidade" class="col-sm-2 col-form-label">Cidade</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="cidade" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                    <div class="col-sm-5">
+                        <select id="estado" class="form-control">
+                            <option selected disabled>Escolher...</option>
+                            <option value="AC">Acre (AC)</option>
+                            <option value="AL">Alagoas (AL)</option>
+                            <option value="AP">Amapá (AP)</option>
+                            <option value="AM">Amazonas (AM)</option>
+                            <option value="BA">Bahia (BA)</option>
+                            <option value="CE">Ceará (CE)</option>
+                            <option value="DF">Distrito Federal (DF)</option>
+                            <option value="ES">Espírito Santo (ES)</option>
+                            <option value="GO">Goiás (GO)</option>
+                            <option value="MA">Maranhão (MA)</option>
+                            <option value="MT">Mato Grosso (MT)</option>
+                            <option value="MS">Mato Grosso do Sul (MS)</option>
+                            <option value="MG">Minas Gerais (MG)</option>
+                            <option value="PA">Pará (PA)</option>
+                            <option value="PB">Paraíba (PB)</option>
+                            <option value="PR">Paraná (PR)</option>
+                            <option value="PE">Pernambuco (PE)</option>
+                            <option value="PI">Piauí (PI)</option>
+                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                            <option value="RN">Rio Grande do Norte (RN)</option>
+                            <option value="RS">Rio Grande do Sul (RS)</option>
+                            <option value="RO">Rondônia (RO)</option>
+                            <option value="RR">Roraima (RR)</option>
+                            <option value="SC">Santa Catarina (SC)</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="SE">Sergipe (SE)</option>
+                            <option value="TO">Tocantins (TO)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="foto" class="col-sm-2 col-form-label">Enviar foto:</label>
+                    <div class="col-sm-5">
+                      <input type="file" class="form-control" id="profilePhoto" accept="image/*">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <div class="col-sm-5 offset-sm-2">
+                        <button type="button" class="btn btn-primary" onclick="salvarEdicaoUsuario()">Salvar alterações</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5 offset-sm-2">
+                        <button type="button" onclick="window.location.href='perfil.html'" class="btn btn-primary mt-3">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <footer class="footer py-4" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">
+                        Projeto Integrador 2024<br>
+                        Univesp - Eixo Computação
+                    </div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                    <!-- Espaço vazio para alinhar centralmente -->
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none" href="termos.html" style="font-weight: bold">Termos de Uso</a>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+
+
+
+
