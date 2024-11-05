@@ -6,18 +6,18 @@
 
 ### Curso Ciência de Dados
 
-Flávia Alessandra Furlan
-Lígia de Queiroz Lopes
-Samanta Simoso de Moraes
-Simone Simoso de Moraes
+* Flávia Alessandra Furlan
+* Lígia de Queiroz Lopes
+* Samanta Simoso de Moraes
+* Simone Simoso de Moraes
 
 
 ### Curso Engenharia de Computação
 
-Melvin Fernando Silveira
-Renan Cermaria Bressan
+* Melvin Fernando Silveira
+* Renan Cermaria Bressan
 
 
 ### Curso Tecnologia da Informação
 
-Matheus Delmunde
+* Matheus Delmunde
