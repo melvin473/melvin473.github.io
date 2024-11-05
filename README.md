@@ -22,3 +22,12 @@
 ### Curso Tecnologia da Informação
 
 * Matheus Delmunde
+
+## Tecnologias utilizadas
+
+* HTML
+* Javascript
+* CSS
+* PHP
+* Github
+  
