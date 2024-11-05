@@ -2,6 +2,12 @@
 
 **Projeto realizado pelos alunos do Eixo Computação de 2022 da Univesp**
 
+## Objetivos
+
+* Utilizar a tecnologia para reunir animais perdidos e seus tutores, reafirmando os laços que os unem
+* Oferecer um espaço para que animais abandonados possam encontrar novos lares amorosos
+* Promover o bem-estar animal e a felicidade das famílias
+
 ## Participaram desse projeto:
 
 
