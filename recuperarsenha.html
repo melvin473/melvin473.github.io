@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Recuperação de Senha" />
+    <meta name="author" content="Pet Resgate" />
+    <title>Pet Resgate - Recuperação de Senha</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="main/assets/favicon.png" />
+    <!-- Font Awesome icons (free version) -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="main/css/styles.css" rel="stylesheet" />
+    <script src="main/js/scripts.js"></script>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand" aria-label="Pet Resgate"><img src="main/assets/img/navbar-logo.png" alt="Logo do Pet Resgate" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar navegação">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html" aria-label="Navegar para Página inicial">Página Inicial</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Recuperação de Senha -->
+    <div class="container mt-5 mb-5">
+        <h2>Recuperação de Senha</h2>
+        <p>Digite seu email e enviaremos instruções para recuperar a sua senha.</p>
+        <form id="recuperacao-senha-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control mb-3" id="email" placeholder="Digite seu email" maxlength="50" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+        </form>
+        <p id="sucesso-mensagem" class="text-success mt-3" style="display: none;"><strong>Solicitação feita com sucesso! Examine sua caixa de entrada.</strong></p>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer py-4" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">
+                    Projeto Integrador 2024<br>
+                    Univesp - Eixo Computação
+                </div>
+                <div class="col-lg-4 my-3 my-lg-0"></div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none" href="termos.html" style="font-weight: bold">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('recuperacao-senha-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('sucesso-mensagem').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
