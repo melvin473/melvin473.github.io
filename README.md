@@ -36,4 +36,4 @@
 * CSS
 * PHP
 * Github
-  
+* SQL
