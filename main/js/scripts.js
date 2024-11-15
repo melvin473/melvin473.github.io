@@ -920,3 +920,9 @@ function salvarAlteracoesPet(event) {
     alert('Pet não encontrado!');
   }
 }
+
+$('#infoModal').on('hidden.bs.modal', function (e) {
+    $('.modal-backdrop').remove();
+    $('body').removeClass('modal-open');
+    $('body').css('padding-right', '');
+});
