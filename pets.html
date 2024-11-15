@@ -20,10 +20,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Animais cadastrados</title>
 </head>
-
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav" aria-label="Navegação principal">
@@ -45,6 +43,7 @@
     </nav>
     <div id="petList" class="pet-list mt-5 ml-5"></div>
 
+    <!-- Modal -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -74,6 +73,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer py-4" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
         <div class="container">
             <div class="row align-items-center">
@@ -98,7 +98,10 @@
 
       $('#infoModal').on('hidden.bs.modal', function (e) {
         $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
+        $('body').css('padding-right', '');
       });
     </script>
 </body>
 </html>
+
