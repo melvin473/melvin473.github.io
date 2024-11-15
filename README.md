@@ -15,8 +15,6 @@
 
 * Flávia Alessandra Furlan
 * Lígia de Queiroz Lopes
-* Samanta Simoso de Moraes
-* Simone Simoso de Moraes
 
 
 ### Curso Engenharia de Computação
@@ -28,6 +26,8 @@
 ### Curso Tecnologia da Informação
 
 * Matheus Delmunde
+* Samanta Simoso de Moraes
+* Simone Simoso de Moraes
 
 ## Tecnologias utilizadas
 
