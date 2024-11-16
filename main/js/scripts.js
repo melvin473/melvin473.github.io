@@ -197,7 +197,7 @@ function salvarCadastro() {
     localStorage.setItem('users', JSON.stringify(users));
 
     alert('Usuário cadastrado com sucesso!');
-    document.getElementById('registrationForm').reset();
+    window.location.href = "login.html";
   }
 }
 
