@@ -7,7 +7,7 @@
 // Scripts
 // 
 function validarCampos() { 
-    const form = document.getElementById('registrationForm');
+    const form = document.getElementById('cadastro-form');
     return form.checkValidity(); // Verifica se todos os campos obrigatórios são válidos
 }
 
