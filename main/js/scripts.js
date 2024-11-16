@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function logout() {
   localStorage.removeItem('loggedInUser');
-  window.location.href = 'home.html';
+  window.location.href = 'index.html';
   alert('Você foi desconectado');
 }
 
