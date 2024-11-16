@@ -6,6 +6,10 @@
 //
 // Scripts
 // 
+function validarCampos() { 
+    const form = document.getElementById('registrationForm');
+    return form.checkValidity(); // Verifica se todos os campos obrigatórios são válidos
+}
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -130,6 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function salvarCadastro(event) {
+  if (!validarCampos()) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+  }
   event.preventDefault();  
   const nome = document.getElementById('nome').value;
   const telefone = document.getElementById('telefone').value;
