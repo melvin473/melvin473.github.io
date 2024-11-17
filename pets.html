@@ -73,6 +73,52 @@
             </div>
         </div>
     </div>
+<!-- Caixa de Diálogo de Adoção -->
+<div class="modal fade" id="adocaoModal" tabindex="-1" aria-labelledby="adocaoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adocaoModalLabel">Confirmar Adoção</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja adotar este animal?</p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="confirmacaoAdocao">
+                    <label class="form-check-label" for="confirmacaoAdocao">Declaro que analisei minha situação e tenho condições para manter este animal.</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarAdocao()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Caixa de Diálogo para Usuário Não Logado -->
+<div class="modal fade" id="contatoModal" tabindex="-1" aria-labelledby="contatoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contatoModalLabel">Contato para Adoção</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Você não possui cadastro conosco. Deixe uma forma de contato e retornaremos quando possível.</p>
+                <input type="text" id="contatoUsuario" class="form-control" placeholder="Seu contato">
+                <small>Crie um <a href="cadastro_usuario.html">cadastro conosco</a> e agilize o processo.</small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="enviarContato()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <footer class="footer py-4" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
         <div class="container">
