@@ -929,3 +929,50 @@ function salvarAlteracoesPet(event) {
     alert('Pet não encontrado!');
   }
 }
+
+function verificarSituacao() {
+    const situacao = document.getElementById('modalSituacao').innerText.trim();
+    const botaoAdotar = document.getElementById('botaoAdotar');
+
+    if (situacao === 'Para Adoção') {
+        botaoAdotar.disabled = false;
+    } else {
+        botaoAdotar.disabled = true;
+    }
+}
+
+$('#infoModal').on('show.bs.modal', function (event) {
+    verificarSituacao();
+});
+
+function abrirDialogoAdocao() {
+    if (usuarioEstaLogado()) {
+        $('#adocaoModal').modal('show');
+    } else {
+        $('#contatoModal').modal('show');
+    }
+}
+
+function usuarioEstaLogado() {
+    return !!localStorage.getItem('loggedInUser'); // Verifica se há um usuário logado no localStorage
+}
+
+function confirmarAdocao() {
+    const confirmacaoAdocao = document.getElementById('confirmacaoAdocao');
+    if (confirmacaoAdocao.checked) {
+        alert('Vamos entrar em contato através do email/telefone fornecidos no cadastro.');
+        $('#adocaoModal').modal('hide');
+    } else {
+        alert('Por favor, confirme que você tem condições de manter o animal.');
+    }
+}
+
+function enviarContato() {
+    const contato = document.getElementById('contatoUsuario').value.trim();
+    if (contato) {
+        alert('Entraremos em contato.');
+        $('#contatoModal').modal('hide');
+    } else {
+        alert('Por favor, forneça uma forma de contato.');
+    }
+}
