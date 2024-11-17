@@ -65,10 +65,18 @@
                     <p><strong>Raça:</strong> <span id="modalRaca"></span></p>
                     <p><strong>Castrado:</strong> <span id="modalCastrado"></span></p>
                     <p><strong>Vacinado:</strong> <span id="modalVacinado"></span></p>
-                    <button type="button" id="botaoAdotar" class="btn btn-primary mt-3" onclick="abrirDialogoAdocao()">Quero Adotar</button>
-                    <!-- Botões de Compartilhamento com Ícones -->
-                    <button id="shareFacebook" class="btn btn-primary"><i class="fab fa-facebook-f"></i> Compartilhar no Facebook</button>
-                    <button id="shareInstagram" class="btn btn-danger mt-3"><i class="fab fa-instagram"></i> Compartilhar no Instagram</button>
+                   <div class="d-flex flex-column align-items-start">
+                       <button type="button" id="botaoAdotar" class="btn btn-primary mt-3" onclick="abrirDialogoAdocao()">
+                           <i class="fas fa-heart"></i> Quero Adotar
+                       </button>
+                       <!-- Botões de Compartilhamento com Ícones -->
+                       <button id="shareFacebook" class="btn btn-primary mt-3">
+                           <i class="fab fa-facebook-f"></i> Compartilhar no Facebook
+                       </button>
+                       <button id="shareInstagram" class="btn btn-danger mt-3">
+                           <i class="fab fa-instagram"></i> Compartilhar no Instagram
+                       </button>
+                   </div>
                 </div>
             </div>
         </div>
@@ -109,8 +117,8 @@
             </div>
             <div class="modal-body">
                 <p>Você não possui cadastro conosco. Deixe uma forma de contato e retornaremos quando possível.</p>
-                <input type="text" id="contatoUsuario" class="form-control" placeholder="Seu contato">
-                <small>Crie um <a href="cadastro_usuario.html">cadastro conosco</a> e agilize o processo.</small>
+                <input type="text" id="contatoUsuario" class="form-control" placeholder="Seu contato" required>
+                <small>Crie um <a href="cadastrousuario.html">cadastro conosco</a> e agilize o processo.</small>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
