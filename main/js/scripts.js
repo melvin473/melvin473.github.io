@@ -976,3 +976,4 @@ function enviarContato() {
         alert('Por favor, forneça uma forma de contato.');
     }
 }
+
