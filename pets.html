@@ -26,8 +26,6 @@
     <script src="main/js/scripts.js"></script>
     <title>Animais cadastrados</title>
 </head>
-
-
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav" aria-label="Navegação principal">
@@ -48,50 +46,52 @@
     </nav>
     <div id="petList" class="pet-list mt-5 ml-5"></div>
 
-    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Informações do Pet</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+    <!-- Modal de Informações do Pet -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Informações do Pet</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalFoto" src="" alt="Foto do Pet" class="img-fluid" style="width: 400px; height: 300px;">
+                <h2 id="modalNome"></h2>
+                <p><strong>Telefone:</strong> <span id="modalTelefone"></span></p>
+                <p><strong>Descrição:</strong> <span id="modalDescricao"></span></p>
+                <p><strong>Endereço:</strong> <span id="modalEndereco"></span></p>
+                <p><strong>Situação:</strong> <span id="modalSituacao"></span></p>
+                <p><strong>Tipo:</strong> <span id="modalTipo"></span></p>
+                <p><strong>Porte:</strong> <span id="modalPorte"></span></p>
+                <p><strong>Raça:</strong> <span id="modalRaca"></span></p>
+                <p><strong>Castrado:</strong> <span id="modalCastrado"></span></p>
+                <p><strong>Vacinado:</strong> <span id="modalVacinado"></span></p>
+                <div class="d-flex flex-column align-items-start">
+                    <button type="button" id="botaoAdotar" class="btn btn-primary mt-3" onclick="abrirDialogoAdocao()">
+                        <i class="fas fa-heart"></i> Quero Adotar
                     </button>
-                </div>
-                <div class="modal-body">
-                    <img src="" id="modalFoto" style="width: 400px; height: 300px; object-fit: cover;" alt="Foto do Pet">
-                    <p><strong>Nome:</strong> <span id="modalNome"></span></p>
-                    <p><strong>Telefone:</strong> <span id="modalTelefone"></span></p>
-                    <p><strong>Descrição:</strong> <span id="modalDescricao"></span></p>
-                    <p><strong>Endereço:</strong> <span id="modalEndereco"></span></p>
-                    <p><strong>Situação:</strong> <span id="modalSituacao"></span></p>
-                    <p><strong>Tipo:</strong> <span id="modalTipo"></span></p>
-                    <p><strong>Porte:</strong> <span id="modalPorte"></span></p>
-                    <p><strong>Raça:</strong> <span id="modalRaca"></span></p>
-                    <p><strong>Castrado:</strong> <span id="modalCastrado"></span></p>
-                    <p><strong>Vacinado:</strong> <span id="modalVacinado"></span></p>
-                   <div class="d-flex flex-column align-items-start">
-                       <button type="button" id="botaoAdotar" class="btn btn-primary mt-3" onclick="abrirDialogoAdocao()">
-                           <i class="fas fa-heart"></i> Quero Adotar
-                       </button>
-                       <!-- Botões de Compartilhamento com Ícones -->
-                       <button id="shareFacebook" class="btn btn-primary mt-3">
-                           <i class="fab fa-facebook-f"></i> Compartilhar no Facebook
-                       </button>
-                       <button id="shareInstagram" class="btn btn-danger mt-3">
-                           <i class="fab fa-instagram"></i> Compartilhar no Instagram
-                       </button>
-                   </div>
+                    <!-- Botões de Compartilhamento com Ícones -->
+                    <button id="shareFacebook" class="btn btn-primary mt-3">
+                        <i class="fab fa-facebook-f"></i> Compartilhar no Facebook
+                    </button>
+                    <button id="shareInstagram" class="btn btn-danger mt-3">
+                        <i class="fab fa-instagram"></i> Compartilhar no Instagram
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 <!-- Caixa de Diálogo de Adoção -->
 <div class="modal fade" id="adocaoModal" tabindex="-1" aria-labelledby="adocaoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="adocaoModalLabel">Confirmar Adoção</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -103,29 +103,30 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary" onclick="confirmarAdocao()">Confirmar</button>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Caixa de Diálogo para Usuário Não Logado -->
 <div class="modal fade" id="contatoModal" tabindex="-1" aria-labelledby="contatoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="contatoModalLabel">Contato para Adoção</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <p>Você não possui cadastro conosco. Deixe uma forma de contato e retornaremos quando possível.</p>
                 <input type="text" id="contatoUsuario" class="form-control" placeholder="Seu contato">
-                <small>Crie um <a href="cadastrousuario.html">cadastro conosco</a> e agilize o processo.</small>
+                <small>Crie um <a href="cadastro_usuario.html">cadastro conosco</a> e agilize o processo.</small>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary" onclick="enviarContato()">Enviar</button>
             </div>
         </div>
